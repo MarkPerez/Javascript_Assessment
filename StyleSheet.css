@@ -1,0 +1,8 @@
+body {
+    background: linear-gradient(aquamarine, cyan, blue);
+}
+
+.jumbotron {
+    background : white;
+    border-style: solid;
+}
