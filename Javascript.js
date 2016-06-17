@@ -28,14 +28,17 @@ function calculate(){
     
     //calculate NI contributions
     if ((grossSalary / 52) <= 155) {
+        //NI below primary limit
         nationalInsurance = 0;
     }
     
     else if ((grossSalary / 52) <= 827) {
+        //NI between 155 and 827 per week at 12%
         nationalInsurance = roundToInt((((grossSalary / 52) - 155) * 0.12) * 52);
     }
     
     else {
+        //NI above 827 per week at 2%, between 155 and 827 at 12%
         nationalInsurance = roundToInt(((((grossSalary / 52) - 827) * 0.02) * 52) + (((672 * 0.12) * 52)));
     }
     
@@ -56,6 +59,7 @@ function calculate(){
         }
     
     else if (grossSalary <= 150000) {
+        //between £32,000 and £150,000 at 40%
         basicRateTax = 6400;
         higherRateTax = roundToInt((grossSalary - 43000) * 0.4);
         totalTax = basicRateTax + higherRateTax;
@@ -73,6 +77,7 @@ function calculate(){
     }
         
     else {
+        //above £150,000 at 45%
         basicRateTax = 6400;
         higherRateTax = 47200;
         personalAllowance = 0;
@@ -87,6 +92,7 @@ function calculate(){
 } 
     
 function reset() {
+    //clear input field and calculations
     document.getElementById("demo").innerHTML = "";
     document.getElementById("inputField").reset();
     
